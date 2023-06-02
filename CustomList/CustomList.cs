@@ -45,7 +45,7 @@ namespace CustomList
         public override string ToString()
         {
             //returns a single string that contains all items from array
-            return "";
+            return " ";
         }
 
         public static CustomList<T> operator +(CustomList<T> firstList, CustomList<T> secondList)
