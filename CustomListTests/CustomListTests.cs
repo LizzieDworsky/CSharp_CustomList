@@ -4,6 +4,8 @@ namespace CustomListTests
     [TestClass]
     public class CustomListTests
     {
+
+        // Add Method Tests
         [TestMethod]
         public void Add_AddOneItem_CountShouldIncreaseToOne()
         {
@@ -96,6 +98,8 @@ namespace CustomListTests
 
         }
 
+
+        // Remove Method Tests
         [TestMethod]
         public void Remove_RemoveOneItem_CountDecreasesByOne()
         {
@@ -196,6 +200,164 @@ namespace CustomListTests
         }
 
 
+        // ToString Method Tests
+        [TestMethod]
+        public void ToString_StringifyAllStringValuesInItemsArray_ReturnStringValuesCombinedInOneString()
+        {
+            // Arrange
+            
+
+            // Act
+            
+
+            // Assert
+            
+        }
+
+        [TestMethod]
+        public void ToString_StringifyAllIntValuesInItemsArray_ReturnStringifiedIntValues()
+        {
+            // Arrange
+
+
+            // Act
+
+
+            // Assert
+
+        }
+
+        [TestMethod]
+        public void ToString_AttemptToStringafy_ReturnEmptyString()
+        {
+            // Arrange
+
+
+            // Act
+
+
+            // Assert
+
+        }
+
+        // Plus Operator Overload Tests
+        [TestMethod]
+        public void PlusOperator_CombineTwoListsFirstLonger_ReturnsListwithCombinesValuesOfBothLists()
+        {
+            // Arrange
+
+
+            // Act
+
+
+            // Assert
+
+        }
+
+        [TestMethod]
+        public void PlusOperator_CombineTwoListsSecondLonger_ReturnsListwithCombinesValuesOfBothLists()
+        {
+            // Arrange
+
+
+            // Act
+
+
+            // Assert
+
+        }
+
+        [TestMethod]
+        public void PlusOperator_CombineTwoListsEqualLength_ReturnsListwithCombinesValuesOfBothLists()
+        {
+            // Arrange
+
+
+            // Act
+
+
+            // Assert
+
+        }
+
+        [TestMethod]
+        public void PlusOperator_CombineTwoListsOneEmpty_ReturnsUnchangedListWithInitialValues()
+        {
+            // Arrange
+
+
+            // Act
+
+
+            // Assert
+
+        }
+
+        // Minus Operator Overload Tests
+        [TestMethod]
+        public void MinusOperator_SubtractValuesFromFirstListInSecondFirstListIsLonger_ReturnFirstListMinusValuesInSecondList()
+        {
+            // Arrange
+
+
+            // Act
+
+
+            // Assert
+
+        }
+
+        [TestMethod]
+        public void MinusOperator_SubtractValuesFromFirstListInSecondSecondListIsLonger_ReturnFirstListMinusValuesInSecondList()
+        {
+            // Arrange
+
+
+            // Act
+
+
+            // Assert
+
+        }
+
+        [TestMethod]
+        public void MinusOperator_SubtractValuesFromFirstListInSecondListsSameLength_ReturnFirstListMinusValuesInSecondList()
+        {
+            // Arrange
+
+
+            // Act
+
+
+            // Assert
+
+        }
+
+        [TestMethod]
+        public void MinusOperator_SubtractValuesFromFirstListInSecondSecondListIsEmpty_ReturnsUnchangedFirstList()
+        {
+            // Arrange
+
+
+            // Act
+
+
+            // Assert
+
+        }
+
+        [TestMethod]
+        public void MinusOperator_SubtractOnlyOneInstanceFromFirstListInSecondIfDuplicatesInFirstListNotSecond_ReturnFirstListWithDuplicateValuesIfNoDuplicatesInSecondList()
+        {
+            // Arrange
+
+
+            // Act
+
+
+            // Assert
+
+        }
 
     }
 }
