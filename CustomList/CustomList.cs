@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,12 +14,16 @@ namespace CustomList
         private int capacity;
         private int count;
 
+        public T[] Items { get { return items; } set { items = value; } }
+        public int Capacity { get { return capacity; } set { capacity = value; } }
+        public int Count { get { return count; } set { count = value; } }
+
         //Constructor
         public CustomList()
         {
-            //capacity = 
-            //count =
-            //items = 
+            items = new T[4];
+            capacity = items.Length;
+            count = 0;
         }
 
         //Member Methods (CAN DO)
