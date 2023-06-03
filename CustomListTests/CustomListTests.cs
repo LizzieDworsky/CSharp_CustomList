@@ -250,73 +250,79 @@ namespace CustomListTests
 
         // Plus Operator Overload Tests
         [TestMethod]
-        public void PlusOperator_CombineTwoListsFirstLonger_ReturnsListwithCombinesValuesOfBothLists()
+        public void PlusOperator_CombineTwoListsFirstLonger_ReturnsListwithCombinedValuesOfBothLists()
         {
             // Arrange
             CustomList<int> compareList = new CustomList<int>();
             compareList.Add(2);
-            compareList.Add(3);
             compareList.Add(4);
+            compareList.Add(3);
             CustomList<int> listOne = new CustomList<int>();
             listOne.Add(2);
             listOne.Add(4);
             CustomList<int> listTwo = new CustomList<int>();
             listTwo.Add(3);
-            CustomList<int> resultsList = new CustomList<int>();
 
             // Act
-            resultsList = listOne + listTwo;
+            CustomList<int> resultsList = listOne + listTwo;
 
             // Assert
-            Assert.AreEqual(compareList, resultsList);
+            for (int i = 0; i < compareList.Count; i++)
+            {
+                Assert.AreEqual(compareList.Items[i], resultsList.Items[i]);
+            }
 
         }
 
         [TestMethod]
-        public void PlusOperator_CombineTwoListsSecondLonger_ReturnsListwithCombinesValuesOfBothLists()
+        public void PlusOperator_CombineTwoListsSecondLonger_ReturnsListwithCombinedValuesOfBothLists()
         {
             // Arrange
             CustomList<int> compareList = new CustomList<int>();
-            compareList.Add(1);
             compareList.Add(2);
+            compareList.Add(1);
             compareList.Add(3);
             CustomList<int> listOne = new CustomList<int>();
             listOne.Add(2);
             CustomList<int> listTwo = new CustomList<int>();
             listTwo.Add(1);
             listTwo.Add(3);
-            CustomList<int> resultsList = new CustomList<int>();
 
             // Act
-            resultsList = listOne + listTwo;
+            CustomList<int> resultsList = listOne + listTwo;
 
             // Assert
-            Assert.AreEqual(compareList, resultsList);
+            for (int i = 0; i < compareList.Count; i++)
+            {
+                Assert.AreEqual(compareList.Items[i], resultsList.Items[i]);
+            }
 
         }
 
         [TestMethod]
-        public void PlusOperator_CombineTwoListsEqualLength_ReturnsListwithCombinesValuesOfBothLists()
+        public void PlusOperator_CombineTwoListsEqualLength_ReturnsListwithCombinedValuesOfBothLists()
         {
             // Arrange
             CustomList<int> compareList = new CustomList<int>();
-            compareList.Add(1);
             compareList.Add(2);
-            compareList.Add(3);
             compareList.Add(4);
+            compareList.Add(1);
+            compareList.Add(3);
             CustomList<int> listOne = new CustomList<int>();
             listOne.Add(2);
             listOne.Add(4);
             CustomList<int> listTwo = new CustomList<int>();
             listTwo.Add(1);
             listTwo.Add(3);
-            CustomList<int> resultsList = new CustomList<int>();
 
             // Act
-            resultsList = listOne + listTwo;
+            CustomList<int> resultsList = listOne + listTwo;
 
             // Assert
-            Assert.AreEqual(compareList, resultsList);
+            for (int i = 0; i < compareList.Count; i++)
+            {
+                Assert.AreEqual(compareList.Items[i], resultsList.Items[i]);
+            }
 
         }
 
@@ -331,79 +337,134 @@ namespace CustomListTests
             listOne.Add(2);
             listOne.Add(4);
             CustomList<int> listTwo = new CustomList<int>();
-            CustomList<int> resultsList = new CustomList<int>();
 
             // Act
-            resultsList = listOne + listTwo;
+            CustomList<int> resultsList = listOne + listTwo;
 
             // Assert
-            Assert.AreEqual(compareList, resultsList);
+            for (int i = 0; i < compareList.Count; i++)
+            {
+                Assert.AreEqual(compareList.Items[i], resultsList.Items[i]);
+            }
 
         }
 
         // Minus Operator Overload Tests
         [TestMethod]
-        public void MinusOperator_SubtractValuesFromFirstListInSecondFirstListIsLonger_ReturnFirstListMinusValuesInSecondList()
+        public void MinusOperator_SubtractValuesInSecondListFromFirstListFirstListIsLonger_ReturnFirstListMinusValuesInSecondList()
         {
             // Arrange
-
+            CustomList<int> compareList = new CustomList<int>();
+            compareList.Add(4);
+            CustomList<int> listOne = new CustomList<int>();
+            listOne.Add(2);
+            listOne.Add(4);
+            CustomList<int> listTwo = new CustomList<int>();
+            listTwo.Add(2);
 
             // Act
-
+            CustomList<int> resultsList = listOne - listTwo;
 
             // Assert
+            for (int i = 0; i < compareList.Count; i++)
+            {
+                Assert.AreEqual(compareList.Items[i], resultsList.Items[i]);
+            }
 
         }
 
         [TestMethod]
-        public void MinusOperator_SubtractValuesFromFirstListInSecondSecondListIsLonger_ReturnFirstListMinusValuesInSecondList()
+        public void MinusOperator_SubtractValuesInSecondListFromFirstListSecondListIsLonger_ReturnFirstListMinusValuesInSecondList()
         {
             // Arrange
-
+            CustomList<int> compareList = new CustomList<int>();
+            compareList.Add(4);
+            CustomList<int> listOne = new CustomList<int>();
+            listOne.Add(2);
+            listOne.Add(4);
+            CustomList<int> listTwo = new CustomList<int>();
+            listTwo.Add(2);
+            listTwo.Add(3);
+            listTwo.Add(1);
 
             // Act
-
+            CustomList<int> resultsList = listOne - listTwo;
 
             // Assert
+            for (int i = 0; i < compareList.Count; i++)
+            {
+                Assert.AreEqual(compareList.Items[i], resultsList.Items[i]);
+            }
 
         }
 
         [TestMethod]
-        public void MinusOperator_SubtractValuesFromFirstListInSecondListsSameLength_ReturnFirstListMinusValuesInSecondList()
+        public void MinusOperator_SubtractValuesInSecondListFromFirstListListsSameLength_ReturnFirstListMinusValuesInSecondList()
         {
             // Arrange
-
+            CustomList<int> compareList = new CustomList<int>();
+            compareList.Add(4);
+            CustomList<int> listOne = new CustomList<int>();
+            listOne.Add(2);
+            listOne.Add(4);
+            CustomList<int> listTwo = new CustomList<int>();
+            listTwo.Add(2);
+            listTwo.Add(3);
 
             // Act
-
+            CustomList<int> resultsList = listOne - listTwo;
 
             // Assert
+            for (int i = 0; i < compareList.Count; i++)
+            {
+                Assert.AreEqual(compareList.Items[i], resultsList.Items[i]);
+            }
 
         }
 
         [TestMethod]
-        public void MinusOperator_SubtractValuesFromFirstListInSecondSecondListIsEmpty_ReturnsUnchangedFirstList()
+        public void MinusOperator_SubtractValuesInSecondListFromFirstListSecondListIsEmpty_ReturnsUnchangedFirstList()
         {
             // Arrange
-
+            CustomList<int> compareList = new CustomList<int>();
+            compareList.Add(2);
+            compareList.Add(4);
+            CustomList<int> listOne = new CustomList<int>();
+            listOne.Add(2);
+            listOne.Add(4);
+            CustomList<int> listTwo = new CustomList<int>();
 
             // Act
-
+            CustomList<int> resultsList = listOne - listTwo;
 
             // Assert
+            for (int i = 0; i < compareList.Count; i++)
+            {
+                Assert.AreEqual(compareList.Items[i], resultsList.Items[i]);
+            }
 
         }
 
         [TestMethod]
-        public void MinusOperator_SubtractOnlyOneInstanceFromFirstListInSecondIfDuplicatesInFirstListNotSecond_ReturnFirstListWithDuplicateValuesIfNoDuplicatesInSecondList()
+        public void MinusOperator_SubtractOnlyOneInstanceFromFirstListIfDuplicatesInFirstListNotSecond_ReturnFirstListWithDuplicateValuesIfNoDuplicatesInSecondList()
         {
             // Arrange
-
+            CustomList<int> compareList = new CustomList<int>();
+            compareList.Add(4);
+            CustomList<int> listOne = new CustomList<int>();
+            listOne.Add(4);
+            listOne.Add(4);
+            CustomList<int> listTwo = new CustomList<int>();
+            listTwo.Add(4);
 
             // Act
-
+            CustomList<int> resultsList = listOne - listTwo;
 
             // Assert
+            for (int i = 0; i < compareList.Count; i++)
+            {
+                Assert.AreEqual(compareList.Items[i], resultsList.Items[i]);
+            }
 
         }
 
