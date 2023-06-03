@@ -253,12 +253,22 @@ namespace CustomListTests
         public void PlusOperator_CombineTwoListsFirstLonger_ReturnsListwithCombinesValuesOfBothLists()
         {
             // Arrange
-
+            CustomList<int> compareList = new CustomList<int>();
+            compareList.Add(2);
+            compareList.Add(3);
+            compareList.Add(4);
+            CustomList<int> listOne = new CustomList<int>();
+            listOne.Add(2);
+            listOne.Add(4);
+            CustomList<int> listTwo = new CustomList<int>();
+            listTwo.Add(3);
+            CustomList<int> resultsList = new CustomList<int>();
 
             // Act
-
+            resultsList = listOne + listTwo;
 
             // Assert
+            Assert.AreEqual(compareList, resultsList);
 
         }
 
@@ -266,12 +276,22 @@ namespace CustomListTests
         public void PlusOperator_CombineTwoListsSecondLonger_ReturnsListwithCombinesValuesOfBothLists()
         {
             // Arrange
-
+            CustomList<int> compareList = new CustomList<int>();
+            compareList.Add(1);
+            compareList.Add(2);
+            compareList.Add(3);
+            CustomList<int> listOne = new CustomList<int>();
+            listOne.Add(2);
+            CustomList<int> listTwo = new CustomList<int>();
+            listTwo.Add(1);
+            listTwo.Add(3);
+            CustomList<int> resultsList = new CustomList<int>();
 
             // Act
-
+            resultsList = listOne + listTwo;
 
             // Assert
+            Assert.AreEqual(compareList, resultsList);
 
         }
 
@@ -279,12 +299,24 @@ namespace CustomListTests
         public void PlusOperator_CombineTwoListsEqualLength_ReturnsListwithCombinesValuesOfBothLists()
         {
             // Arrange
-
+            CustomList<int> compareList = new CustomList<int>();
+            compareList.Add(1);
+            compareList.Add(2);
+            compareList.Add(3);
+            compareList.Add(4);
+            CustomList<int> listOne = new CustomList<int>();
+            listOne.Add(2);
+            listOne.Add(4);
+            CustomList<int> listTwo = new CustomList<int>();
+            listTwo.Add(1);
+            listTwo.Add(3);
+            CustomList<int> resultsList = new CustomList<int>();
 
             // Act
-
+            resultsList = listOne + listTwo;
 
             // Assert
+            Assert.AreEqual(compareList, resultsList);
 
         }
 
@@ -292,12 +324,20 @@ namespace CustomListTests
         public void PlusOperator_CombineTwoListsOneEmpty_ReturnsUnchangedListWithInitialValues()
         {
             // Arrange
-
+            CustomList<int> compareList = new CustomList<int>();
+            compareList.Add(2);
+            compareList.Add(4);
+            CustomList<int> listOne = new CustomList<int>();
+            listOne.Add(2);
+            listOne.Add(4);
+            CustomList<int> listTwo = new CustomList<int>();
+            CustomList<int> resultsList = new CustomList<int>();
 
             // Act
-
+            resultsList = listOne + listTwo;
 
             // Assert
+            Assert.AreEqual(compareList, resultsList);
 
         }
 
