@@ -24,9 +24,34 @@ namespace CustomList
         }
 
         public int Capacity { get { return capacity; } set { capacity = value; } }
-        public int Count { get { return count; } set { count = value; } }
+        public int Count { get { return count; } }
         public T[] Items { get { return items; } set { items = value; } }
-        public T this[int index] { get { return items[index]; } set { items[index] = value; } }
+        public T this[int index] 
+        { 
+            get 
+            {
+                if (index < 0 || index >= count)
+                {
+                    throw new IndexOutOfRangeException();
+                }
+                else
+                {
+                    return items[index]; 
+                }
+            } 
+            set 
+            {
+                if (index < 0 || index >= count)
+                {
+                    throw new IndexOutOfRangeException();
+                }
+                else
+                {
+                    items[index] = value; 
+                }
+                
+            } 
+        }
         
 
         //Member Methods (CAN DO)
@@ -66,7 +91,7 @@ namespace CustomList
 
         public IEnumerator GetEnumerator()
         {
-            for (int i = 0; i < items.Length; i++)
+            for (int i = 0; i < count; i++)
             {
                 yield return items[i];
             }
