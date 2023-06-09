@@ -84,7 +84,32 @@ namespace CustomList
             //If 'item' exists in the 'items' array, remove its first instance
             //Any items coming after the removed item should be shifted down so there is no empty index.
             //If 'item' was removed, return true. If no item was removed, return false.
-            return false;
+            bool itemExists = false;
+            int index = Array.IndexOf(items, item);
+            if (index >= 0)
+            {
+                itemExists = true;
+                items = ShiftArray(index);
+                count--;
+            }
+            return itemExists;
+        }
+
+        private T[] ShiftArray(int indexOfItem)
+        {
+            T[] tempArray = new T[capacity];
+            for (int i = 0; i < count; i++)
+            {
+                if (i < indexOfItem)
+                {
+                    tempArray[i] = items[i];
+                }
+                else
+                {
+                    tempArray[i] = items[i + 1];
+                }
+            }
+            return tempArray;
         }
 
         public override string ToString()
