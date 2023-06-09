@@ -62,17 +62,21 @@ namespace CustomList
             //transfer all items to new array
             if (capacity == count)
             {
-                DoubleCapacity();
+                items = DoubleCapacity();
+                capacity = items.Length;
             }
-            else
-            {
-                
-            }
+            items[count] = item;
+            count++;
         }
 
-        private void DoubleCapacity()
+        private T[] DoubleCapacity()
         {
-
+            T[] tempArray = new T[capacity*2];
+            for (int i = 0; i < count; i++)
+            {
+                tempArray[i] = items[i];
+            }
+            return tempArray;
         }
 
         public bool Remove(T item)
