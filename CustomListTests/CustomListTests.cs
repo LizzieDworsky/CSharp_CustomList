@@ -76,6 +76,33 @@ namespace CustomListTests
         }
 
         [TestMethod]
+        public void Add_AddNineItems_CapactityDoublesTwice()
+        {
+            // Arrange
+            CustomList<int> myCustomList = new CustomList<int>();
+            int itemOne = 1;
+            int itemTwo = 2;
+            int itemThree = 3;
+            int itemFour = 4;
+            int itemFive = 5;
+
+            // Act
+            myCustomList.Add(itemOne);
+            myCustomList.Add(itemTwo);
+            myCustomList.Add(itemThree);
+            myCustomList.Add(itemFour);
+            myCustomList.Add(itemFive);
+            myCustomList.Add(itemOne);
+            myCustomList.Add(itemTwo);
+            myCustomList.Add(itemThree);
+            myCustomList.Add(itemFour);
+
+            // Assert
+            Assert.AreEqual(16, myCustomList.Capacity);
+
+        }
+
+        [TestMethod]
         public void Add_AddFiveItems_FirstItemAtZeroIndex()
         {
             // Arrange
