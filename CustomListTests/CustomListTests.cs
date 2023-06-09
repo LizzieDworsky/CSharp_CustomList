@@ -31,7 +31,7 @@ namespace CustomListTests
             myCustomList.Add(item);
 
             // Assert
-            Assert.AreEqual(item, myCustomList.Items[0]);
+            Assert.AreEqual(item, myCustomList[0]);
 
         }
 
@@ -48,7 +48,7 @@ namespace CustomListTests
             myCustomList.Add(itemTwo);
 
             // Assert
-            Assert.AreEqual(itemTwo, myCustomList.Items[1]);
+            Assert.AreEqual(itemTwo, myCustomList[1]);
 
         }
 
@@ -121,7 +121,7 @@ namespace CustomListTests
             myCustomList.Add(itemFive);
 
             // Assert
-            Assert.AreEqual(itemOne, myCustomList.Items[0]);
+            Assert.AreEqual(itemOne, myCustomList[0]);
 
         }
 
@@ -189,7 +189,7 @@ namespace CustomListTests
             myCustomList.Remove(2);
 
             // Assert
-            Assert.AreEqual(secondItem, myCustomList.Items[0]);
+            Assert.AreEqual(secondItem, myCustomList[0]);
         }
 
         [TestMethod]
@@ -206,7 +206,7 @@ namespace CustomListTests
             myCustomList.Remove(4);
 
             // Assert
-            Assert.AreEqual(thirdItem, myCustomList.Items[1]);
+            Assert.AreEqual(thirdItem, myCustomList[1]);
         }
 
         [TestMethod]
@@ -296,7 +296,7 @@ namespace CustomListTests
             // Assert
             for (int i = 0; i < compareList.Count; i++)
             {
-                Assert.AreEqual(compareList.Items[i], resultsList.Items[i]);
+                Assert.AreEqual(compareList[i], resultsList[i]);
             }
 
         }
@@ -321,7 +321,7 @@ namespace CustomListTests
             // Assert
             for (int i = 0; i < compareList.Count; i++)
             {
-                Assert.AreEqual(compareList.Items[i], resultsList.Items[i]);
+                Assert.AreEqual(compareList[i], resultsList[i]);
             }
 
         }
@@ -348,7 +348,7 @@ namespace CustomListTests
             // Assert
             for (int i = 0; i < compareList.Count; i++)
             {
-                Assert.AreEqual(compareList.Items[i], resultsList.Items[i]);
+                Assert.AreEqual(compareList[i], resultsList[i]);
             }
 
         }
@@ -371,7 +371,7 @@ namespace CustomListTests
             // Assert
             for (int i = 0; i < compareList.Count; i++)
             {
-                Assert.AreEqual(compareList.Items[i], resultsList.Items[i]);
+                Assert.AreEqual(compareList[i], resultsList[i]);
             }
 
         }
@@ -395,7 +395,7 @@ namespace CustomListTests
             // Assert
             for (int i = 0; i < compareList.Count; i++)
             {
-                Assert.AreEqual(compareList.Items[i], resultsList.Items[i]);
+                Assert.AreEqual(compareList[i], resultsList[i]);
             }
 
         }
@@ -420,7 +420,7 @@ namespace CustomListTests
             // Assert
             for (int i = 0; i < compareList.Count; i++)
             {
-                Assert.AreEqual(compareList.Items[i], resultsList.Items[i]);
+                Assert.AreEqual(compareList[i], resultsList[i]);
             }
 
         }
@@ -444,7 +444,7 @@ namespace CustomListTests
             // Assert
             for (int i = 0; i < compareList.Count; i++)
             {
-                Assert.AreEqual(compareList.Items[i], resultsList.Items[i]);
+                Assert.AreEqual(compareList[i], resultsList[i]);
             }
 
         }
@@ -467,7 +467,7 @@ namespace CustomListTests
             // Assert
             for (int i = 0; i < compareList.Count; i++)
             {
-                Assert.AreEqual(compareList.Items[i], resultsList.Items[i]);
+                Assert.AreEqual(compareList[i], resultsList[i]);
             }
 
         }
@@ -490,7 +490,7 @@ namespace CustomListTests
             // Assert
             for (int i = 0; i < compareList.Count; i++)
             {
-                Assert.AreEqual(compareList.Items[i], resultsList.Items[i]);
+                Assert.AreEqual(compareList[i], resultsList[i]);
             }
 
         }
