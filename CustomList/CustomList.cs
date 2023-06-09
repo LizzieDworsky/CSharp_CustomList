@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerable
     {
         //Member Variables (HAS A)
         private T[] items;
@@ -48,6 +49,14 @@ namespace CustomList
         {
             //returns a single string that contains all items from array
             return " ";
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            for (int i = 0; i < items.Length; i++)
+            {
+                yield return items[i];
+            }
         }
 
         public static CustomList<T> operator +(CustomList<T> firstList, CustomList<T> secondList)
