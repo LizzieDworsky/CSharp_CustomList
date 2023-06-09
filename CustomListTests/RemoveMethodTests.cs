@@ -54,6 +54,22 @@ namespace CustomListTests
         }
 
         [TestMethod]
+        public void Remove_TryToRemoveItemNotInList_ReturnsFalse()
+        {
+            // Arrange
+            CustomList<int> myCustomList = new CustomList<int>();
+            myCustomList.Add(2);
+            myCustomList.Add(4);
+            myCustomList.Add(6);
+
+            // Act
+            bool isRemoved = myCustomList.Remove(8);
+
+            // Assert
+            Assert.AreEqual(false, isRemoved);
+        }
+
+        [TestMethod]
         public void Remove_RemoveItemAtZeroIndex_ItemsShiftBackPreviousFirstIndexNowAtZero()
         {
             // Arrange

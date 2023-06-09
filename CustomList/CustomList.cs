@@ -35,6 +35,19 @@ namespace CustomList
             //'item' parameter should be added to internal 'items' array
             //if items array is at capacity, double capacity and create new array
             //transfer all items to new array
+            if (capacity == count)
+            {
+                DoubleCapacity();
+            }
+            else
+            {
+                
+            }
+        }
+
+        private void DoubleCapacity()
+        {
+
         }
 
         public bool Remove(T item)
