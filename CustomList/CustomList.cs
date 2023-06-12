@@ -115,7 +115,32 @@ namespace CustomList
         public override string ToString()
         {
             //returns a single string that contains all items from array
-            return " ";
+            string results = "";
+            int counter = 0;
+            foreach (T item in items)
+            {
+                counter++;
+                if (counter <= count)
+                {
+                    if (item is string strItem)
+                    {
+                        results += item;
+                    }
+                    else if (item is bool boolItem)
+                    {
+                        results += String.Format("{0}", boolItem);
+                    }
+                    else if (item is int intItem)
+                    {
+                        results += String.Format("{0}", intItem);
+                    }
+                    else if (item is double doubleItem)
+                    {
+                        results += String.Format("{0}", doubleItem);
+                    }
+                }
+            }
+            return results;
         }
 
         public IEnumerator GetEnumerator()

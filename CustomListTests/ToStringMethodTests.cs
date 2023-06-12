@@ -39,6 +39,39 @@ namespace CustomListTests
         }
 
         [TestMethod]
+        public void ToString_StringifyAllDoubleValuesInItemsArray_ReturnStringifiedIntValues()
+        {
+            // Arrange
+            CustomList<double> myCustomList = new CustomList<double>();
+            myCustomList.Add(2.2);
+            myCustomList.Add(4.4);
+            myCustomList.Add(6.6);
+
+            // Act
+            string stringifiedList = myCustomList.ToString();
+
+            // Assert
+            Assert.AreEqual("2.24.46.6", stringifiedList);
+
+        }
+
+        [TestMethod]
+        public void ToString_StringifyAllBooleanValuesInItemsArray_ReturnStringifiedIntValues()
+        {
+            // Arrange
+            CustomList<bool> myCustomList = new CustomList<bool>();
+            myCustomList.Add(false);
+            myCustomList.Add(true);
+
+            // Act
+            string stringifiedList = myCustomList.ToString();
+
+            // Assert
+            Assert.AreEqual("FalseTrue", stringifiedList);
+
+        }
+
+        [TestMethod]
         public void ToString_AttemptToStringafy_ReturnEmptyString()
         {
             // Arrange
