@@ -39,7 +39,7 @@ namespace CustomListTests
         }
 
         [TestMethod]
-        public void ToString_StringifyAllDoubleValuesInItemsArray_ReturnStringifiedIntValues()
+        public void ToString_StringifyAllDoubleValuesInItemsArray_ReturnStringifiedDoubleValues()
         {
             // Arrange
             CustomList<double> myCustomList = new CustomList<double>();
@@ -56,7 +56,7 @@ namespace CustomListTests
         }
 
         [TestMethod]
-        public void ToString_StringifyAllBooleanValuesInItemsArray_ReturnStringifiedIntValues()
+        public void ToString_StringifyAllBooleanValuesInItemsArray_ReturnStringifiedBooleanValues()
         {
             // Arrange
             CustomList<bool> myCustomList = new CustomList<bool>();
@@ -68,6 +68,22 @@ namespace CustomListTests
 
             // Assert
             Assert.AreEqual("FalseTrue", stringifiedList);
+
+        }
+
+        [TestMethod]
+        public void ToString_StringifyAllListValuesInItemsArray_ReturnEmptyString()
+        {
+            // Arrange
+            CustomList<List<string>> myCustomList = new CustomList<List<string>>();
+            myCustomList.Add(new List<string>());
+            myCustomList.Add(new List<string>());
+
+            // Act
+            string stringifiedList = myCustomList.ToString();
+
+            // Assert
+            Assert.AreEqual("", stringifiedList);
 
         }
 
