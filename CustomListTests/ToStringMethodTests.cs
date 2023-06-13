@@ -72,7 +72,7 @@ namespace CustomListTests
         }
 
         [TestMethod]
-        public void ToString_StringifyAllListValuesInItemsArray_ReturnEmptyString()
+        public void ToString_AttemptToStringifyList_ReturnEmptyString()
         {
             // Arrange
             CustomList<List<string>> myCustomList = new CustomList<List<string>>();

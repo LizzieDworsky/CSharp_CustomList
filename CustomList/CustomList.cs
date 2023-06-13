@@ -10,12 +10,10 @@ namespace CustomList
 {
     public class CustomList<T> : IEnumerable
     {
-        //Member Variables (HAS A)
         private T[] items;
         private int capacity;
         private int count;
 
-        //Constructor
         public CustomList()
         {
             items = new T[4];
@@ -53,13 +51,8 @@ namespace CustomList
             } 
         }
         
-
-        //Member Methods (CAN DO)
         public void Add(T item)
         {
-            //'item' parameter should be added to internal 'items' array
-            //if items array is at capacity, double capacity and create new array
-            //transfer all items to new array
             if (capacity == count)
             {
                 items = DoubleCapacity();
@@ -81,9 +74,6 @@ namespace CustomList
 
         public bool Remove(T item)
         {
-            //If 'item' exists in the 'items' array, remove its first instance
-            //Any items coming after the removed item should be shifted down so there is no empty index.
-            //If 'item' was removed, return true. If no item was removed, return false.
             bool itemExists = false;
             int index = Array.IndexOf(items, item);
             if (index >= 0)
@@ -114,7 +104,6 @@ namespace CustomList
 
         public override string ToString()
         {
-            //returns a single string that contains all items from array
             string results = "";
             int counter = 0;
             foreach (T item in items)
@@ -154,7 +143,16 @@ namespace CustomList
         public static CustomList<T> operator +(CustomList<T> firstList, CustomList<T> secondList)
         {
             //returns a single CustomList<T> that contains all items from firstList and all items from secondList 
-            return null;
+            CustomList<T> tempList = new CustomList<T>();
+            for (int i = 0; i < firstList.Count; i++)
+            {
+                tempList.Add(firstList[i]);
+            }
+            for (int i = 0; i < secondList.Count; i++)
+            {
+                tempList.Add(secondList[i]);
+            }
+            return tempList;
         }
 
         public static CustomList<T> operator -(CustomList<T> firstList, CustomList<T> secondList)
