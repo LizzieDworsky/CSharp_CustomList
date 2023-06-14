@@ -14,6 +14,12 @@ namespace CustomList
         private int capacity;
         private int count;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CustomList{T}"/> class.
+        /// </summary>
+        /// <remarks>
+        /// The initial capacity is set to four, and the count is set to zero.
+        /// </remarks>
         public CustomList()
         {
             items = new T[4];
@@ -21,9 +27,31 @@ namespace CustomList
             count = 0;
         }
 
+        /// <summary>
+        /// Gets or Sets the capacity of the CustomList.
+        /// </summary>
         public int Capacity { get { return capacity; } set { capacity = value; } }
+        
+        /// <summary>
+        /// Gets the current count of items in the CustomList.
+        /// </summary>
         public int Count { get { return count; } }
+        
+        /// <summary>
+        /// Gets or Sets the items in CustomList.
+        /// </summary>
         public T[] Items { get { return items; } set { items = value; } }
+
+        /// <summary>
+        /// Gets or sets the item at the specified index in the CustomList.
+        /// </summary>
+        /// <param name="index">The zero-based index of the item to get or set.</param>
+        /// <value>
+        /// The item at the specified index.
+        /// </value>
+        /// <exception cref="IndexOutOfRangeException">
+        /// index is not a valid index in the CustomList.
+        /// </exception>
         public T this[int index] 
         { 
             get 
@@ -50,7 +78,14 @@ namespace CustomList
                 
             } 
         }
-        
+
+        /// <summary>
+        /// Adds the specified item to the CustomList array.
+        /// </summary>
+        /// <remarks>
+        /// If capacity is reached, this method doubles the capacity before adding the item.
+        /// </remarks>
+        /// <param name="item">The item to add to the CustomList.</param>
         public void Add(T item)
         {
             if (capacity == count)
@@ -62,16 +97,28 @@ namespace CustomList
             count++;
         }
 
+        /// <summary>
+        /// Creates a new array with double the current capacity and copies the existing items into it.
+        /// </summary>
+        /// <returns>A new array of type T with double the capacity of the current array, containing all the current items.</returns>
         private T[] DoubleCapacity()
-        {
-            T[] tempArray = new T[capacity*2];
-            for (int i = 0; i < count; i++)
             {
-                tempArray[i] = items[i];
+                T[] tempArray = new T[capacity*2];      
+                for (int i = 0; i < count; i++)
+                {
+                    tempArray[i] = items[i];
+                }
+                return tempArray;
             }
-            return tempArray;
-        }
 
+        /// <summary>
+        /// Removes the specified item from the CustomList array.
+        /// </summary>
+        /// <remarks>
+        /// Shifts items to fill in the gap if item was removed.
+        /// </remarks>
+        /// <param name="item">The item to remove from CustomList</param>
+        /// <returns>True if item was successfully removed, false otherwise.</returns>
         public bool Remove(T item)
         {
             bool itemExists = false;
@@ -85,6 +132,11 @@ namespace CustomList
             return itemExists;
         }
 
+        /// <summary>
+        /// Shifts the items in the array backwards to override the item to be removed, maintaining the original capacity.
+        /// </summary>
+        /// <param name="indexOfItem">The index of the item to remove.</param>
+        /// <returns>The shifted array with the item removed, maintaining the original capacity.</returns>
         private T[] ShiftArray(int indexOfItem)
         {
             T[] tempArray = new T[capacity];
@@ -102,6 +154,13 @@ namespace CustomList
             return tempArray;
         }
 
+        /// <summary>
+        /// Concatenates the string representations of string, bool, int, or double items in the CustomList. Items of other types are ignored.
+        /// </summary>
+        /// <remarks>
+        /// The items are concatenated without any separator. For example, the list [1, 2, 3] would be converted to "123".
+        /// </remarks>
+        /// <returns>A single string consisting of the string representations of the items in the CustomList, or an empty string if the list does not contain any items of the handled types.</returns>
         public override string ToString()
         {
             string results = "";
@@ -132,6 +191,12 @@ namespace CustomList
             return results;
         }
 
+        /// <summary>
+        /// Returns an enumerator that iterates through the CustomList.
+        /// </summary>
+        /// <returns>
+        /// An IEnumerator object that can be used to iterate through the collection.
+        /// </returns>
         public IEnumerator GetEnumerator()
         {
             for (int i = 0; i < count; i++)
@@ -140,6 +205,12 @@ namespace CustomList
             }
         }
 
+        /// <summary>
+        /// Overloads the addition (+) operator to combine two CustomList instances into one.
+        /// </summary>
+        /// <param name="firstList">The first CustomList instance.</param>
+        /// <param name="secondList">The second CustomList instance.</param>
+        /// <returns>A new CustomList instance that contains all elements from both input lists.</returns>
         public static CustomList<T> operator +(CustomList<T> firstList, CustomList<T> secondList)
         {
             CustomList<T> tempList = new CustomList<T>();
@@ -154,6 +225,12 @@ namespace CustomList
             return tempList;
         }
 
+        /// <summary>
+        /// Overloads the subtraction (-) operator to create a new CustomList instance that contains only the elements of the first list that are not present in the second list. 
+        /// </summary>
+        /// <param name="firstList">The first CustomList instance from which elements will be subtracted.</param>
+        /// <param name="secondList">The second CustomList instance whose elements will be subtracted from the first list.</param>
+        /// <returns>A new CustomList instance that contains only the elements found in the first list but not in the second. If the lists contain elements of a type other than string, int, or double, this method returns null.</returns>
         public static CustomList<T> operator -(CustomList<T> firstList, CustomList<T> secondList)
         {
             Type elementType = firstList.Items.GetType().GetElementType();
