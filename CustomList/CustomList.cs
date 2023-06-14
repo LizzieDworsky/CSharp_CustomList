@@ -8,6 +8,16 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
+    /// <summary>
+    /// A custom implementation of a dynamic array (list) in C#, similar to <see cref="List{T}"/>.
+    /// </summary>
+    /// <typeparam name="T">The type of elements in the list.</typeparam>
+    /// <remarks>
+    /// This class supports adding and removing items, checking the count of items, and accessing items by index.
+    /// The initial capacity of the list is set to 4 and grows as needed when items are added.
+    /// This class also provides methods to concatenate the string representation of the elements in the list, and overloads the addition (+) and subtraction (-) operators to merge two lists or remove the items of the second list from the first one, respectively.
+    /// It implements <see cref="IEnumerable"/> interface, allowing its instances to be used in foreach loops.
+    /// </remarks>
     public class CustomList<T> : IEnumerable
     {
         private T[] items;
@@ -28,9 +38,9 @@ namespace CustomList
         }
 
         /// <summary>
-        /// Gets or Sets the capacity of the CustomList.
+        /// Gets the capacity of the CustomList.
         /// </summary>
-        public int Capacity { get { return capacity; } set { capacity = value; } }
+        public int Capacity { get { return capacity; } }
         
         /// <summary>
         /// Gets the current count of items in the CustomList.
