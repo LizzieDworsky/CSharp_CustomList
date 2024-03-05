@@ -17,7 +17,7 @@ namespace CustomList
     /// This class also provides methods to concatenate the string representation of the elements in the list, and overloads the addition (+) and subtraction (-) operators to merge two lists or remove the items of the second list from the first one, respectively.
     /// It implements <see cref="IEnumerable"/> interface, allowing its instances to be used in foreach loops.
     /// </remarks>
-    public class CustomList<T> : IEnumerable
+    public class CustomList<T> : IEnumerable where T : IComparable<T>
     {
         private T[] items;
         private int capacity;

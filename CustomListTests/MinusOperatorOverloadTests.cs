@@ -171,24 +171,5 @@ namespace CustomListTests
 
         }
 
-        [TestMethod]
-        public void MinusOperator_AttemptToMinusListOfLists_ReturnNull()
-        {
-            // Arrange
-            CustomList<List<string>> myCustomList = new CustomList<List<string>>();
-            myCustomList.Add(new List<string>());
-            myCustomList.Add(new List<string>());
-            CustomList<List<string>> mySecondCustomList = new CustomList<List<string>>();
-            myCustomList.Add(new List<string>());
-            myCustomList.Add(new List<string>());
-
-            // Act
-            CustomList<List<string>> results = myCustomList - mySecondCustomList;
-
-            // Assert
-            Assert.AreEqual(null, results);
-
-        }
-
     }
 }
