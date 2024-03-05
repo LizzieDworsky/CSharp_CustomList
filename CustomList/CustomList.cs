@@ -208,11 +208,15 @@ namespace CustomList
         }
 
         /// <summary>
-        /// Overloads the subtraction (-) operator to create a new CustomList instance that contains only the elements of the first list that are not present in the second list. 
+        /// Overloads the subtraction (-) operator to create a new CustomList instance that contains elements of the first list,
+        /// subtracting occurrences of elements found in the second list. Each element in the second list subtracts a single
+        /// occurrence of a matching element from the first list, if present.
         /// </summary>
-        /// <param name="firstList">The first CustomList instance from which elements will be subtracted.</param>
-        /// <param name="secondList">The second CustomList instance whose elements will be subtracted from the first list.</param>
-        /// <returns>A new CustomList instance that contains only the elements found in the first list but not in the second. If the lists contain elements of a type other than string, int, or double, this method returns null.</returns>
+        /// <param name="firstList">The first CustomList instance, the elements of which will be considered for subtraction.</param>
+        /// <param name="secondList">The second CustomList instance, the elements of which will be subtracted from the first list.</param>
+        /// <returns>A new CustomList instance containing the result of the subtraction. Elements from the first list are included except for
+        /// those that have a matching element in the second list. Matching is based on the count of occurrences: each element in the
+        /// second list reduces the count of a matching element in the first list by one.</returns>
         public static CustomList<T> operator -(CustomList<T> firstList, CustomList<T> secondList)
         {
             CustomList<T> result = new CustomList<T>();

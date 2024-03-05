@@ -1,47 +1,30 @@
-﻿Title: Overloading the Minus Operator (-) in CustomList<T>: 
+﻿Title: Overloading the Minus Operator (-) in CustomList<T>
 public static CustomList<T> operator -(CustomList<T> firstList, CustomList<T> secondList)
 
 Definition:
-Overloads the minus operator (-) for the CustomList<T> class. 
-This operator is used to subtract elements in secondList from firstList. 
-The method checks the type of the elements in firstList and if the type is string, int, or double, 
-the method creates a new list (tempList) and adds all elements from firstList to it. 
-Then it removes elements from tempList that also exist in secondList. 
-If the type is not string, int, or double, it returns null.
+Overloads the minus operator (-) for the CustomList<T> class, where T is constrained to types that implement IComparable<T>. 
+This operator subtracts the occurrences of elements found in the secondList from the firstList. For each element in secondList, if a matching element exists in firstList, it reduces the count of that element in the result by one. This operation is based on the actual count of occurrences, allowing for precise subtraction of items.
 
 Parameters:
-
-firstList (CustomList<T>): The list from which elements are to be subtracted.
-secondList (CustomList<T>): The list containing the elements to be subtracted from the first list.
+- firstList (CustomList<T>): The list from which elements are to be subtracted.
+- secondList (CustomList<T>): The list containing the elements to be subtracted from the first list.
 
 Returns:
-
-Returns a new CustomList<T> (tempList) which contains elements from firstList excluding those which are also in secondList.
-If the type of the elements in firstList is not string, int, or double, returns null.
+Returns a new CustomList<T> which contains elements from firstList, with the occurrences of elements in secondList subtracted. This method respects the count of each element, ensuring a matching element in secondList subtracts only a single occurrence of that element from firstList.
 
 Implements:
-
-The method uses a foreach loop to add all elements from firstList to a new list (tempList), 
-then uses a for loop to remove elements from secondList from tempList.
+The method uses a Dictionary<T, int> to track the count of each element in secondList. It then iterates through firstList, adding elements to the result list unless they are present in the dictionary with a non-zero count, in which case the count is decremented.
 
 Examples:
-
-CustomList<int> list1 = new CustomList<int> {1, 2, 3, 4};
+CustomList<int> list1 = new CustomList<int> {1, 2, 2, 3, 4};
 CustomList<int> list2 = new CustomList<int> {2, 4};
 CustomList<int> result = list1 - list2;
-// result is now {1, 3}
+// result is now {1, 2, 3}
 
-CustomList<string> list3 = new CustomList<string> {"apple", "banana", "cherry"};
+CustomList<string> list3 = new CustomList<string> {"apple", "banana", "cherry", "banana"};
 CustomList<string> list4 = new CustomList<string> {"banana"};
 CustomList<string> result2 = list3 - list4;
-// result2 is now {"apple", "cherry"}
+// result2 is now {"apple", "cherry", "banana"}
 
 Remarks:
-
-This operator overload provides an easy and intuitive way to perform set subtraction operations on CustomList<T> objects 
-where T is either string, int, or double. Be aware that if T is of any other type, the method will return null. 
-This is a limitation of the current implementation and may be updated in future versions.
-
-
-
-
+This operator overload provides a way to perform item-by-item subtraction operations on CustomList<T> objects, considering the count of each element. It's suitable for scenarios where precise control over the subtraction of duplicate items is needed. The constraint that T must implement IComparable<T> ensures that elements can be compared, which is essential for operations like sorting but is not directly utilized in this subtraction operation.
