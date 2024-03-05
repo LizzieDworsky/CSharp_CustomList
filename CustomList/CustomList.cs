@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,8 +31,9 @@ namespace CustomList
         /// </remarks>
         public CustomList()
         {
-            items = new T[4];
-            capacity = items.Length;
+            
+            capacity = 4;
+            items = new T[capacity];
             count = 0;
         }
 
@@ -46,11 +46,6 @@ namespace CustomList
         /// Gets the current count of items in the CustomList.
         /// </summary>
         public int Count { get { return count; } }
-        
-        /// <summary>
-        /// Gets or Sets the items in CustomList.
-        /// </summary>
-        public T[] Items { get { return items; } set { items = value; } }
 
         /// <summary>
         /// Gets or sets the item at the specified index in the CustomList.
@@ -243,7 +238,7 @@ namespace CustomList
         /// <returns>A new CustomList instance that contains only the elements found in the first list but not in the second. If the lists contain elements of a type other than string, int, or double, this method returns null.</returns>
         public static CustomList<T> operator -(CustomList<T> firstList, CustomList<T> secondList)
         {
-            Type elementType = firstList.Items.GetType().GetElementType();
+            Type elementType = firstList.items.GetType().GetElementType();
             if (elementType == typeof(string) || elementType == typeof(int) || elementType == typeof(double))
             {
                 CustomList<T> tempList = new CustomList<T>();

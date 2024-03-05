@@ -114,10 +114,18 @@ namespace CustomListTests
 
             // Act
             myCustomList.Remove(4);
-            int index = Array.IndexOf(myCustomList.Items, 4);
+            bool duplicateExists = false;
+            for (int i = 0; i < myCustomList.Count; i++)
+            {
+                if (myCustomList[i] == 4)
+                {
+                    duplicateExists = true;
+                    break;
+                }
+            }
 
             // Assert
-            Assert.AreNotEqual(-1, index);
+            Assert.IsTrue(duplicateExists);
         }
     }
 }
