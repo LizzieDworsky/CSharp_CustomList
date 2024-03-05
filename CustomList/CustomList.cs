@@ -215,25 +215,33 @@ namespace CustomList
         /// <returns>A new CustomList instance that contains only the elements found in the first list but not in the second. If the lists contain elements of a type other than string, int, or double, this method returns null.</returns>
         public static CustomList<T> operator -(CustomList<T> firstList, CustomList<T> secondList)
         {
-            Type elementType = firstList.items.GetType().GetElementType();
-            if (elementType == typeof(string) || elementType == typeof(int) || elementType == typeof(double))
-            {
-                CustomList<T> tempList = new CustomList<T>();
-                foreach (T item in firstList)
-                {
-                    tempList.Add(item);
-                }
+            CustomList<T> result = new CustomList<T>();
 
-                for (int i = 0; i < secondList.Count; i++)
-                {
-                    tempList.Remove(secondList[i]);
-                }
-                return tempList;
-            }
-            else
+            Dictionary<T, int> secondListCounts = new Dictionary<T, int>();
+            foreach (T item in secondList)
             {
-                return null;
+                if (secondListCounts.TryGetValue(item, out int count))
+                {
+                    secondListCounts[item] = count + 1;
+                }
+                else
+                {
+                    secondListCounts[item] = 1;
+                }
             }
+
+            foreach (T item in firstList)
+            {
+                if (secondListCounts.TryGetValue(item, out int count) && count > 0)
+                {
+                    secondListCounts[item]--;
+                }
+                else
+                {
+                    result.Add(item);
+                }
+            }
+            return result;
         }
     }
 }
