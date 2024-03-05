@@ -126,37 +126,29 @@ namespace CustomList
         /// <returns>True if item was successfully removed, false otherwise.</returns>
         public bool Remove(T item)
         {
-            bool itemExists = false;
             int index = Array.IndexOf(items, item);
-            if (index >= 0)
+            if (index == -1)
             {
-                itemExists = true;
-                items = ShiftArray(index);
-                count--;
+                return false;
             }
-            return itemExists;
+
+            ShiftItemsLeft(index);
+            count--;
+            items[count] = default(T);
+
+            return true;
         }
 
         /// <summary>
         /// Shifts the items in the array backwards to override the item to be removed, maintaining the original capacity.
         /// </summary>
         /// <param name="indexOfItem">The index of the item to remove.</param>
-        /// <returns>The shifted array with the item removed, maintaining the original capacity.</returns>
-        private T[] ShiftArray(int indexOfItem)
+        private void ShiftItemsLeft(int startIndex)
         {
-            T[] tempArray = new T[capacity];
-            for (int i = 0; i < count; i++)
+            for (int i = startIndex; i < count; i++)
             {
-                if (i < indexOfItem)
-                {
-                    tempArray[i] = items[i];
-                }
-                else
-                {
-                    tempArray[i] = items[i + 1];
-                }
+                items[i] = items[i + 1];
             }
-            return tempArray;
         }
 
         /// <summary>
