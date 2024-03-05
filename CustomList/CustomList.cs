@@ -96,7 +96,6 @@ namespace CustomList
             if (capacity == count)
             {
                 items = DoubleCapacity();
-                capacity = items.Length;
             }
             items[count] = item;
             count++;
@@ -108,7 +107,8 @@ namespace CustomList
         /// <returns>A new array of type T with double the capacity of the current array, containing all the current items.</returns>
         private T[] DoubleCapacity()
             {
-                T[] tempArray = new T[capacity*2];      
+                capacity *= 2;
+                T[] tempArray = new T[capacity];      
                 for (int i = 0; i < count; i++)
                 {
                     tempArray[i] = items[i];
