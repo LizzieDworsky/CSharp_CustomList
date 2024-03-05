@@ -72,22 +72,6 @@ namespace CustomListTests
         }
 
         [TestMethod]
-        public void ToString_AttemptToStringifyList_ReturnEmptyString()
-        {
-            // Arrange
-            CustomList<List<string>> myCustomList = new CustomList<List<string>>();
-            myCustomList.Add(new List<string>());
-            myCustomList.Add(new List<string>());
-
-            // Act
-            string stringifiedList = myCustomList.ToString();
-
-            // Assert
-            Assert.AreEqual("", stringifiedList);
-
-        }
-
-        [TestMethod]
         public void ToString_AttemptToStringafy_ReturnEmptyString()
         {
             // Arrange

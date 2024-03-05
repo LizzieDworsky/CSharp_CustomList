@@ -152,38 +152,23 @@ namespace CustomList
         }
 
         /// <summary>
-        /// Concatenates the string representations of string, bool, int, or double items in the CustomList. Items of other types are ignored.
+        /// Concatenates the string representations of all items in the CustomList, regardless of their type.
         /// </summary>
         /// <remarks>
-        /// The items are concatenated without any separator. For example, the list [1, 2, 3] would be converted to "123".
+        /// Each item's ToString method is called to obtain its string representation, and these representations are concatenated directly without any separator.
+        /// For example, a list containing the elements [1, "apple", true] would be converted to "1appleTrue".
+        /// This method provides a universal string representation of the list's contents, suitable for debugging or logging purposes.
         /// </remarks>
-        /// <returns>A single string consisting of the string representations of the items in the CustomList, or an empty string if the list does not contain any items of the handled types.</returns>
+        /// <returns>
+        /// A single string consisting of the concatenated string representations of all the items in the CustomList.
+        /// If the list is empty, an empty string is returned.
+        /// </returns>
         public override string ToString()
         {
             string results = "";
-            int counter = 0;
-            foreach (T item in items)
+            for (int i = 0; i < count; i++)
             {
-                counter++;
-                if (counter <= count)
-                {
-                    if (item is string strItem)
-                    {
-                        results += item;
-                    }
-                    else if (item is bool boolItem)
-                    {
-                        results += String.Format("{0}", boolItem);
-                    }
-                    else if (item is int intItem)
-                    {
-                        results += String.Format("{0}", intItem);
-                    }
-                    else if (item is double doubleItem)
-                    {
-                        results += String.Format("{0}", doubleItem);
-                    }
-                }
+                results += $"{items[i]}";
             }
             return results;
         }
