@@ -1,0 +1,42 @@
+﻿CustomList<T> Class Documentation
+
+Overview
+The CustomList<T> class is a custom implementation of a dynamic array in C#, designed to provide similar functionalities to the built-in List<T> class. 
+This document outlines the most recent updates made to the CustomList<T> class, enhancing its performance, readability, and feature set.
+
+Updates Summary
+- Type Constraint: The class now requires that the type T implements the IComparable<T> interface, enabling potential future enhancements that rely on element comparison.
+- Efficiency Improvements:
+	- The Add method and the DoubleCapacity method have been optimized to streamline capacity management.
+	- The Remove method has been enhanced with a more efficient item removal process, minimizing memory allocations and improving performance.
+- Readability Enhancements:
+	- Code readability has been improved through clearer method implementations and the use of string interpolation in the ToString method.
+- New Functionalities:
+	- The subtraction operator overload (-) has been refined to efficiently handle multiple occurrences of items using a dictionary for counting.
+
+Detailed Changes
+
+Type Constraint
+- Before: No constraints on the type parameter T.
+- After: The type parameter T must implement the IComparable<T> interface, laying the groundwork for future functionalities involving element comparison and ordering.
+
+Add Method
+- Before: Capacity doubling logic was partly outside the DoubleCapacity method.
+- After: The DoubleCapacity method now encapsulates the entire logic for doubling the capacity, including updating the capacity variable, thus simplifying the Add method and enhancing encapsulation.
+
+Remove Method
+- Before: Removal of an item involved creating a new temporary array to shift elements.
+- After: Introduction of the ShiftItemsLeft method, which shifts elements within the existing array, eliminating the need for a temporary array and setting the last item's slot to default(T) to aid in garbage collection.
+
+ToString Method
+- Before: Concatenation of string representations of items was done using the += operator.
+- After: The method now uses string interpolation for concatenating item strings, improving code readability.
+
+Operator Overloads
+- Subtraction Operator (-):
+	- Before: The subtraction logic did not efficiently handle multiple occurrences of items from the second list.
+	- After: Implementation now uses a Dictionary<T, int> to count occurrences of items in the second list, significantly improving the efficiency of subtracting these items from the first list.
+
+Conclusion
+The updates to the CustomList<T> class have significantly improved its efficiency, particularly in the areas of item addition and removal. Readability enhancements and the introduction of a type constraint pave the way 
+for future extensions and functionalities. The refined subtraction operator overload marks a notable improvement in handling complex list operations, making the CustomList<T> a more robust and versatile tool for developers.
